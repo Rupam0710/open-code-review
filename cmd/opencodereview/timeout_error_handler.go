@@ -114,5 +114,5 @@ func enhanceTimeoutError(runErr error, startTime time.Time, timeoutMinutes int, 
 	info := analyzeTimeoutError(runErr, startTime, timeoutMinutes)
 	info.SessionID = sessionID
 
-	return fmt.Errorf("%s", formatTimeoutErrorMessage(info))
+	return fmt.Errorf("%s: %w", formatTimeoutErrorMessage(info), runErr)
 }
