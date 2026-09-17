@@ -19,8 +19,10 @@ type TimeoutErrorInfo struct {
 	// TimeoutMinutes is the configured timeout limit
 	TimeoutMinutes int
 	// TotalInputTokens accumulated before timeout
+	// TODO: Populate from ag.TotalInputTokens() in review_cmd.go when enhanceTimeoutError is called
 	TotalInputTokens int64
 	// TotalOutputTokens accumulated before timeout
+	// TODO: Populate from ag.TotalOutputTokens() in review_cmd.go when enhanceTimeoutError is called
 	TotalOutputTokens int64
 	// LastFile is the last file being reviewed when timeout occurred
 	LastFile string
