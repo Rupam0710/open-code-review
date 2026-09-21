@@ -5,6 +5,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -32,7 +33,14 @@ type TimeoutErrorInfo struct {
 
 // isTimeoutError checks if an error is a context deadline exceeded error.
 func isTimeoutError(err error) bool {
-	return errors.Is(err, context.DeadlineExceeded)
+	if errors.Is(err, context.DeadlineExceeded) {
+		return true
+	}
+	// Also detect deadline errors by string matching for wrapped errors
+	if err != nil && strings.Contains(err.Error(), "context deadline exceeded") {
+		return true
+	}
+	return false
 }
 
 // analyzeTimeoutError extracts details from a timeout error and returns
