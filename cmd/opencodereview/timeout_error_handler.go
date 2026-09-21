@@ -107,7 +107,7 @@ func formatTimeoutErrorMessage(info TimeoutErrorInfo) string {
 		sb.WriteString(fmt.Sprintf("     $ ocr review --resume %s\n\n", info.SessionID))
 	}
 
-	sb.WriteString(fmt.Sprintf("📖 Learn more: https://open-codereview.ai/docs/troubleshooting/#timeout-errors\n"))
+	sb.WriteString(fmt.Sprintf("📖 Learn more: https://open-codereview.ai/docs\n"))
 
 	return sb.String()
 }

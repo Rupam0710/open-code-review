@@ -98,7 +98,7 @@ func TestFormatTimeoutErrorMessage(t *testing.T) {
 		"--concurrency",
 		"--exclude",
 		"--resume session-abc123",
-		"https://open-codereview.ai/docs/troubleshooting",
+		"https://open-codereview.ai/docs",
 	}
 
 	for _, check := range checks {
